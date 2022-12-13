@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3FN5CCLFRW"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-3FN5CCLFRW');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:url" content="https://lilmp.github.io/pace42.195/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="2022臺北馬配速模擬+自製手環" />
+    <meta property="og:description" content="輸入目標完賽時間、自製配速手環，就是這麼簡單！" />
+    <!-- <meta property="og:image"
+        content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" /> -->
+
+    <title>2022臺北馬配速模擬+自製手環</title>
+    <link rel=icon href=icons8-running-32.png sizes="32x32" type="image/png">
+    <!-- <link rel=icon href=favicon.ico sizes="32x32 48x48" type="image/vnd.microsoft.icon"> -->
+    <!-- for share btn -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">  -->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- line  -->
+    <!-- <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js"></script> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Aldrich&family=Orbitron&display=swap"
+        rel="stylesheet">
+    <style type="text/css">
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+            padding: 0px;
+            font-weight: bold;
+        }
+
+        /* 讓按鈕往下移動 */
+        .fb-like {
+            position: relative;
+            top: 4px;
+        }
+
+        /* custom scrollbar */
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        h1 {
+            /* font-size: 1.5em; */
+            margin: 10pt 0 0 0;
+        }
+
+        body {
+            width: 60%;
+            margin: auto;
+        }
+
+        button {
+            cursor: pointer;
+            border: 1px solid dimgrey;
+            border-radius: 40px;
+            background-color: #efefef;
+            /* width: 40%; */
+            padding: 10px;
+            /* height: 25pt; */
+            margin: 5px auto;
+            /* display: inline; */
+        }
+
+        button:hover {
+            /* border: 1px solid dimgrey;
+            border-radius: 30px; */
+            background-color: #e5e5e5;
+        }
+
+        img {
+            width: 95%;
+            height: auto;
+            margin: 5px 5px 0px 5px;
+            /*to preserve the aspect ratio of the image*/
+        }
+
+        .la-1_5x {
+            font-size: 1.5em;
+            /* border: 1.5pㄜx solid #ffa500; */
+
+        }
+
+        .la-cheese {
+            background: #fce05e;
+            color: black;
+        }
+
+        .la-restroom {
+            background: #0a9c52;
+            color: white;
+            font-weight: bold;
+        }
+
+        .la-tint {
+            background: #02a2e5;
+            color: white;
+        }
+
+        .small-btn {
+            display: inline-block;
+            color: #8080ff;
+            cursor: pointer;
+            /* border-bottom: 1px double #7d7d86; */
+            /* border-radius: 40px; */
+            /* background-color: #efefef; */
+            /* height: 25pt; */
+            /* margin: 5px auto; */
+            /* display: inline; */
+            width: auto;
+            padding: 0px;
+
+        }
+
+        .small-btn:hover {
+            /* border: 1px solid dimgrey;
+            border-radius: 30px; */
+            /* background-color: #e5e5e5; */
+            /* color: black; */
+            font-weight: bolder;
+            /* font-size: large; */
+        }
+
+        .info-page .small-btn {
+            color: white;
+        }
+
+        body>div.footer>small>a:nth-child(3),
+        body>div.footer>small>a {
+            color: dimgrey;
+        }
+
+        .align-left {
+            text-align: left;
+        }
+
+        .sub-li {
+            text-indent: 1em;
+            list-style: none;
+        }
+
+        .content-title {
+            margin: 5px 0;
+            font-weight: bold;
+            color: #ff9999
+        }
+
+
+        .main,
+        .dynamic-btn,
+        #my-tbl {
+            text-align: center;
+            margin-top: 20%;
+        }
+
+        .even {
+            border-bottom: 2px dashed gray;
+        }
+
+        .location-center {
+            margin: 0 auto;
+            width: 65%;
+        }
+
+        .tab {
+            border-bottom: 1px solid #ccc;
+            overflow: hidden;
+
+
+        }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+            border: none;
+            margin: 0px;
+            border-radius: 0px;
+            background-color: inherit;
+            /* float: left; 按鈕置左 */
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            color: black;
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            color: black;
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            margin: 0px auto;
+            text-align: center;
+            color:silver;
+            /*為了內容置中*/
+            /* font-size: large; */
+            /* border: 1px solid #ccc; */
+            /* border-top: none; */
+        }
+
+        .tablinks {
+            font-size: medium;
+        }
+
+        .info-page .tabcontent>ul,
+        .info-page .tabcontent>ol,
+        .info-page .tabcontent>div>ol,
+        .info-page .tabcontent>div>ul {
+            padding-left: 20px;
+        }
+
+
+        #my-tbl>tbody>tr:nth-child(1)>td {
+            height: 100%;
+            border-bottom: 1px double black;
+        }
+
+        #my-tbl>tbody>tr:nth-child(1)>td>div {
+            /* padding: 3px; */
+            border-bottom: 1px double gray;
+        }
+
+        #my-tbl>tbody>tr>td>div {
+            /* height: 100%; */
+            font-size: 0.8em;
+            padding: 3px;
+            /* border: 1px double black; */
+        }
+
+        #summary2 {
+            padding: 5px 0;
+            /* background-color: #efefef; */
+            width: 95%;
+            margin: auto;
+        }
+
+        #inputFinishTime,
+        /* #my-tbl, */
+        #calBtn,
+        /* #summary2, */
+        #tblFooterBtns {
+            font-size: 1em;
+            /* margin: 30px 0px; */
+        }
+
+        #inputFinishTime {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        #inputFinishTime>ul {
+            width: 80%;
+        }
+
+        /* #hh, #mm, #ss, #calBtn, h1 {
+            font-family: 'VT323','Aldrich','Orbitron', Microsoft JhengHei;
+        } */
+
+        #calBtn {
+            /* margin-top: 10px; */
+            /* margin-bottom: 50px; */
+            background: #ba849e;
+            color: white;
+            padding: 0px 10px;
+            font-weight: bold;
+            border: 2px solid #6c3d37;
+        }
+
+        #calBtn:hover {
+            /* border: 1px solid dimgrey;
+            border-radius: 30px; */
+            background-color: #d195b2;
+        }
+
+        #toDisappear {
+            margin-top: 15px;
+        }
+
+        .myClass {
+            margin: 0;
+        }
+
+        .tHeader {
+            /* font-weight: bold; */
+            background-color: #FCE4D6
+        }
+
+        /* .tCell {
+            background-color: #E5E5E5
+        } */
+
+        .tFooter {
+            /* font-weight: bold; */
+            /* background-color: #FFC000 */
+            background-color: pink
+        }
+
+
+
+        .white {
+            background-color: white
+        }
+
+        .gray {
+            /* background-color: #E5E5E5 */
+            background-color: #EFEFEF
+        }
+
+        .tCellGreen,
+        .tCellRed {
+            /* font-weight: bold; */
+            color: white;
+        }
+
+        .tCellGreen {
+            background-color: #49AD91;
+            /* color: white; */
+        }
+
+        .tCellRed {
+            background-color: #ff9999;
+            color: black;
+            /* #ff8080 */
+            /* #F29D00 */
+        }
+
+        td {
+            padding: 0px;
+            height: 100%;
+        }
+
+        .dynamic-btn {
+            width: 100%;
+            display: inline-block;
+
+        }
+
+        .main input {
+            width: 70%;
+            /* font-size: 15pt; */
+            font-size: 1em;
+            /* font-weight: 400; */
+            resize: none;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+            height: 30px;
+        }
+
+        #inputFinishTime>ul>li:nth-child(1),
+        #inputFinishTime>ul>li:nth-child(7) {
+            width: 50%;
+        }
+
+        #inputFinishTime>ul>li:nth-child(1) {
+            text-align: right;
+        }
+
+        #inputFinishTime>ul>li:nth-child(7) {
+            text-align: left;
+        }
+
+        .main .radio {
+            margin: 10px auto;
+        }
+
+        .main div #fullm,
+        .main div #halfm {
+            margin: 0px 5px;
+            width: auto;
+            font-size: 15pt;
+            /* margin: 0px; */
+            /* resize: none; */
+            /* text-align: left; */
+            /* display: inline-block; */
+            /* vertical-align: middle; */
+            height: auto;
+        }
+
+        .result-title {
+            text-align: center;
+        }
+
+        .footer {
+            color: dimgrey;
+            text-align: center;
+            margin: 5pt auto;
+        }
+
+        .small-dialog {
+            transform-origin: top;
+            transform: scale(0);
+            position: absolute;
+            /* z-index: 999; */
+            /* display: none; */
+            /* font-size: 0.8em;       */
+            background: rgba(80, 78, 78, 0.95);
+            color: #fff;
+            padding: 5px;
+        }
+
+        /* .small-dialog>a{
+            color: white;
+        } */
+
+        .feature-tag,
+        .function-tag,
+        .ans-tag {
+
+            padding: 0px 5px;
+            display: inline;
+            color: white;
+            background-color: #49ad91;
+            border-radius: 10px;
+            font-size: smaller;
+        }
+
+        .ans-tag {
+            border-radius: 0px;
+        }
+
+        .function-tag {
+            background-color: rgb(226, 112, 45);
+        }
+
+        .info-page {
+            position: absolute;
+            top: 10%;
+            /* left: calc(30%-10px); */
+            /* left: 27.5%; */
+            /* 因為body的width是40%, 表示左右兩邊各30% */
+            /* width: 45%; */
+            left: 25%;
+            /* 因為body的width是40%, 表示左右兩邊各30% */
+            width: 50%;
+            height: 75%;
+            overflow: auto;
+            /* height: auto; */
+            transform-origin: top right;
+            transform: scale(0);
+            /* border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px; */
+            /* border-radius: 20px; */
+            z-index: 999;
+            background: rgba(80, 78, 78, 0.95);
+            color: #fff;
+            padding: 10px;
+            font-family: 'roboto';
+            transition: .5s;
+            /* transition-delay: .5s; */
+        }
+
+
+
+        /* .small-dialog>a, */
+        .info-page>div>ul>li>u,
+        .info-page>div>h3>u {
+            text-decoration: underline dotted white;
+        }
+
+        .info-page.active {
+            transform: scale(1);
+            transition-delay: 0s;
+        }
+
+        .small-dialog.active {
+            transform: scale(1);
+            transition-delay: 0s;
+            opacity: 1;
+        }
+
+        /* .small-dialog.active, */
+        .info-page.active .title,
+        .info-page.active .social-media,
+        .info-page.active .link-container {
+            opacity: 1;
+            transition: .5s;
+            transition-delay: .5s;
+        }
+
+        #info {
+            /* color: white;
+            background: gray;
+            padding-top: 2px;
+            padding-left: 6px;
+            cursor: pointer;
+            position: relative;
+            border: none;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            z-index: 2; */
+        }
+
+        .share-btn {
+            display: inline-block;
+            /* color: white; */
+            /* background: gray; */
+            /* padding-top: 2px; */
+            /* padding-left: 6px; */
+            cursor: pointer;
+            /* position: relative; */
+            /* border: none; */
+            /* border-radius: 50%; */
+            /* width: 64px; */
+            /* height: 64px; */
+            /* z-index: 2; */
+        }
+
+        .close {
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            width: 16px;
+            height: 16px;
+            opacity: 0.3;
+        }
+
+        .close:hover {
+            opacity: 1;
+        }
+
+        .close:before,
+        .close:after {
+            position: absolute;
+            left: 8px;
+            content: ' ';
+            height: 16px;
+            width: 2px;
+            background-color: white;
+        }
+
+        .close:before {
+            transform: rotate(45deg);
+        }
+
+        .close:after {
+            transform: rotate(-45deg);
+        }
+
+
+        body>div.main>div:nth-child(4)>ul>li:nth-child(3) {
+            /* .social-media-btn:nth-child(1) { */
+            /* background: #1877F2; */
+            color: #1877F2;
+        }
+
+        body>div.main>div:nth-child(4)>ul>li:nth-child(4) {
+            /* .social-media-btn:nth-child(2) { */
+            /* background: #06C755; */
+            color: #06C755;
+        }
+
+        /* .social-media-btn:nth-child(3) {
+            background: #FF7D7D;
+            color: #A129B7;
+        } */
+
+        .la-info-circle {
+            /* border-style: inset; */
+            color: #ffa500;
+        }
+
+        #insta {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            -webkit-background-clip: text;
+            /* Also define standard property for compatibility */
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            /* font-size: 200px; change this to change the size */
+
+        }
+
+        body>div.main>div:nth-child(4)>ul>li:nth-child(5) {
+            /* .social-media-btn:nth-child(3) { */
+            /* background: #FF7D7D; */
+            color: #FF7D7D;
+        }
+
+
+
+
+        .share-inline {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            padding-left: 0;
+            list-style: none;
+
+        }
+
+        /* .cellText {
+            padding: 6px;
+            font-size: 0.9em;
+        } */
+
+        /* .pink {
+            background-color: pink;
+            border-bottom: 1 solid black;
+        } */
+
+        #result {
+            /* margin-bottom: 20pt; */
+            display: none;
+            padding: 0 0 10px 0;
+            text-align: center;
+            background-color: #efefef;
+            border-radius: 20px;
+            /* box-shadow: 0 0 15px #4b4a46; */
+        }
+
+        /* #summary > tbody > tr > td */
+        #summary {
+            width: 80%;
+            margin: 5pt auto;
+            border-spacing: 0px;
+            /* text-align: right; */
+        }
+
+        #summary>table {
+            width: 80%;
+            text-align: left;
+        }
+
+        #my-tbl {
+            height: 100%;
+            min-height: 1px;
+            background-color: white;
+            width: 95%;
+            margin: auto;
+            border: 2px double black;
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: 1.2em;
+            /* text-align: right; */
+        }
+
+        #tblFooterBtns {
+            margin-top: 5px;
+        }
+
+        #tblFooterBtns>small>a {
+            /* color: #9C1AA9; */
+            cursor: pointer;
+            display: inline;
+            font-size: 1.2em;
+
+        }
+
+        /* for lazy load youtube */
+        .wrapper {
+            /* max-width: 680px; */
+            max-height: 315px;
+            /* margin: 60px auto; */
+            /* padding: 0 20px; */
+        }
+
+        .youtube {
+            background-color: #000;
+            margin-bottom: 30px;
+            position: relative;
+            padding-top: 56.25%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .youtube img {
+            width: 98%;
+            top: -16.82%;
+            left: 0;
+            opacity: 0.7;
+        }
+
+        .youtube .play-button {
+            width: 90px;
+            height: 60px;
+            background-color: #333;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+            z-index: 1;
+            opacity: 0.8;
+            border-radius: 6px;
+        }
+
+        .youtube .play-button:before {
+            content: "";
+            border-style: solid;
+            border-width: 15px 0 15px 26.0px;
+            border-color: transparent transparent transparent #fff;
+        }
+
+        .youtube img,
+        .youtube .play-button {
+            cursor: pointer;
+        }
+
+        .youtube img,
+        .youtube iframe,
+        .youtube .play-button,
+        .youtube .play-button:before {
+            position: absolute;
+        }
+
+        .youtube .play-button,
+        .youtube .play-button:before {
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
+
+        .youtube iframe {
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+
+        .tabcontent>div>ul>li>u {
+            text-decoration-style: dotted;
+            /* text-decoration-color: #49ad91; */
+            text-decoration-thickness: 2px;
+            /* text-decoration-line: none; */
+            /* color: #49ad91; */
+            /* font-weight: bold; */
+        }
+
+        #Prague>div>ul>li:nth-child(7)>span {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff9999;
+        }
+
+        blockquote {
+            padding: 5px 20px 15px 8px;
+            font-weight: bold;
+            color: indianred;
+            /* border-left: 0.5em solid #8b949e; */
+            border-left: 0.5em solid indianred;
+            margin: 10px 0px 0px 0px;
+            background-color: #cccccc
+                /* background-color: #737d8c */
+        }
+
+        blockquote::before {
+            font-family: Arial;
+            content: "\201C";
+            /* color: #8b949e; */
+            color: indianred;
+            font-size: 2em;
+            left: 10px;
+            top: -10px;
+        }
+
+        /* 直接設定表格顏色 */
+        #halfmid1,
+        #fullmid1,
+        #fullmid2,
+        #fullmid9 {
+            background-color: #49AD91;
+            color: white;
+        }
+
+        #fullmid11,
+        #halfmid8 {
+            background-color: #FF9999;
+            color: black;
+        }
+
+
+
+
+        @media only screen and (max-device-width : 375px) {
+            .main {
+                margin-top: 20%
+            }
+
+            .main input {
+                width: 70%;
+                height: 100%;
+            }
+
+            #inputFinishTime>ul>li:nth-child(1),
+            #inputFinishTime>ul>li:nth-child(7) {
+                width: 60%;
+            }
+
+            #inputFinishTime>ul {
+                width: 90%;
+            }
+
+            .main .radio,
+            .main div #fullm,
+            .main div #halfm {
+                /* font-size: 1.2em; */
+            }
+
+            h1 {
+                font-size: 1.5em
+            }
+
+            body {
+                width: 95%;
+                font-size: 80%;
+            }
+
+            .tablinks {
+                font-size: 80%;
+            }
+
+            .location-center {
+                width: 95%;
+            }
+
+            .info-page {
+                top: 2.5%;
+                left: calc(5% - 10px);
+                /* 因為body的width是40%, 表示左右兩邊各30% */
+                width: 90%;
+                height: 90%;
+                overflow: scroll;
+            }
+
+            .tab button,
+            .tabcontent {
+                padding: 3px 6px;
+            }
+
+            .tabcontent {
+                font-size: 75%;
+            }
+
+            .info-page .tabcontent>ul,
+            .info-page .tabcontent>ol,
+            .info-page .tabcontent>div>ol,
+            .info-page .tabcontent>div>ul {
+                /* .info-page>div>ul { */
+                margin-left: 0;
+                padding-left: 10px;
+            }
+
+            .small-dialog {
+                font-size: 0.5em;
+            }
+
+            .close {
+                right: 10px;
+                top: 10px;
+            }
+
+
+            #my-tbl,
+            #summary2 {
+                font-size: 75%;
+            }
+
+            #my-tbl>tbody>tr>td>div {
+                /* height: 100%; */
+                padding: 2px;
+                /* border: 1px double black; */
+            }
+
+            #inputFinishTime,
+            #calBtn,
+            #tblFooterBtns,
+            #footer {
+                font-size: 1em;
+            }
+
+            img {
+                /* width: 80vw;
+                height: auto; */
+                /*to preserve the aspect ratio of the image*/
+            }
+
+            #Prague>div>ul>li:nth-child(7)>span {
+                font-size: medium;
+            }
+        }
+
+        @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+            .main {
+                margin-top: 20%
+            }
+
+            .main input {
+                width: 70%;
+            }
+
+            #inputFinishTime>ul>li:nth-child(1),
+            #inputFinishTime>ul>li:nth-child(7) {
+                width: 20%;
+            }
+
+            #inputFinishTime>ul {
+                width: 90%;
+            }
+
+            .main .radio,
+            .main div #fullm,
+            .main div #halfm {
+                /* font-size: 1.2em; */
+            }
+
+            h1 {
+                font-size: 1.5em
+            }
+
+            body {
+                font-size: 80%;
+                width: 95%;
+            }
+
+            .tablinks {
+                font-size: 80%;
+            }
+
+            .location-center {
+                width: 95%;
+            }
+
+            .info-page {
+                top: 2.5%;
+                left: calc(5% - 10px);
+                /* 因為body的width是40%, 表示左右兩邊各30% */
+                width: 90%;
+                height: 90%;
+                overflow: scroll;
+            }
+
+            .small-dialog {
+                font-size: 0.5em;
+            }
+
+            .tab button,
+            .tabcontent {
+                padding: 3px 6px;
+            }
+
+            .tabcontent {
+                font-size: 75%;
+            }
+
+            .info-page .tabcontent>ul,
+            .info-page .tabcontent>div>ul {
+                /* .info-page>div>ul { */
+                margin-left: 0;
+                padding-left: 10px;
+            }
+
+            .close {
+                right: 10px;
+                top: 10px;
+            }
+
+            #my-tbl,
+            #summary2 {
+                font-size: 75%;
+            }
+
+            #my-tbl>tbody>tr>td>div {
+                /* height: 100%; */
+                padding: 2px;
+                /* border: 1px double black; */
+            }
+
+            #inputFinishTime,
+            #calBtn,
+            #tblFooterBtns,
+            #footer {
+                font-size: 1em;
+            }
+
+            img {
+                /* width: 80vw;
+                height: auto; */
+                /*to preserve the aspect ratio of the image*/
+            }
+
+            #Prague>div>ul>li:nth-child(7)>span {
+                font-size: medium;
+            }
+        }
+
+        * {
+            font-family: Microsoft JhengHei;
+        }
+    </style>
+
+</head>
+
+<body onload="loadHMS()">
+    <div div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v12.0&appId=159442601583782&autoLogAppEvents=1"
+    nonce="HNthlMoS"></script>
+
+
+
+    <div class="main">
+        <h1>2022臺北馬配速模擬+配速手環
+            <!-- </br>配速模擬+手環製作 -->
+        </h1>
+        <div>
+            <div class="footer" style="margin: 10pt 0 0 0;">給馬拉松新手的配速計算機</div>
+            <ul class="footer share-inline" style="margin: 0">
+
+                <li>輸入目標完賽時間、自製配速手環，就是這麼簡單！</li>
+                <li>
+                    <div id='info' onmouseover="showOrHidMoreInfo('#infoIcon')"
+                        onmouseout="showOrHidMoreInfo('#infoIcon')" class="share-btn social-media-btn"><i
+                            class="las la-info-circle la-1_5x"></i>
+                        <div id="infoIcon" class="small-dialog">說明</div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+
+
+
+
+        <div class="info-page">
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'London')" id="defaultOpen">說明</button><button
+                    class="tablinks" onclick="openTab(event, 'Dutch')">計算機</button><button class="tablinks"
+                    onclick="openTab(event, 'Peru')">配速手環</button><button class="tablinks"
+                    onclick="openTab(event, 'Paris')">路線</button><button class="tablinks"                    
+                    onclick="openTab(event, 'Armsterdam')">Q&A</button>
+            </div>
+
+            <a href="#" class="close"></a>
+            <div id='Dutch' class='tabcontent'>
+                <div class="location-center align-left">
+                    <p>常見的馬拉松配速計算機鮮少針對<span class="feature-tag">賽道地形</span>、<span
+                            class="feature-tag">人潮擁擠</span>做調整，導致單純里程除以時間的結果只能淪為參考用，一味追配速最後的結果就是跑爆!!!😵😵😵
+                    </p>
+                    <p>希望有一個工具可以針對賽道狀況，告訴我<br>「甚麼時候要上坡、甚麼時候可以快一點、甚麼時候慢一點沒關係」</p>
+                    <blockquote>只要照著跑，就能順順地在目標時間內完賽</blockquote>
+                    <p>此為本專案最一開始的初衷。<small>(這裡所說的照著跑指的是針對賽道的策略部分,執行力/體能當然是要自己練的)</small></p>
+                    <!-- <p>不同完賽時間的跑者，遇到的賽道狀況會有所不同，為讓模擬結果更貼近現實，本工具設定不同的模擬參數，產生不同的配速建議。</p> -->
+                    <div class="location-center">
+                        <img src="calculator_screenshot.png" alt="paceband" width="100%" style=" max-height: 100%;">
+                    </div>
+                    <p class="content-title">使用說明</p>
+
+                    <ol>
+                        <li>於計算機首頁選擇全馬/半馬</li>
+                        <li>輸入目標完賽時間，點擊enter按鈕</li>
+                        <li>產生配速模擬表格：搭配下方地圖對照查看，熟悉路線做好心理準備！</li>
+                        <li>配速調整醒目提示：與目標均速相比太快或太慢的區段，給予醒目提示。</li>
+                        <li>點選<u>❤️製作配速手環❤️</u>或是<u>清除重來</u></li>
+                    </ol>
+                    <p class="content-title">開發邏輯</p>
+                    <ol>
+                        <li><span class="ans-tag">剛好能在目標完賽時間完賽</span>為目標
+                        </li>
+                        <li>將<span class="ans-tag">人潮擁擠、上下橋</span>的速度變化納入考量</li>
+                        <li>設定的完賽策略是<span class="ans-tag">除人潮及地形有特別調整外，全程基本均速</span></li>
+                        <li>模擬配速結果有預留<span class="ans-tag">進站喝水</span>的時間,且可以<span class="ans-tag">每站都進</span></li>
+
+                    </ol>
+
+
+                </div>
+            </div>
+
+            <div id='London' class="tabcontent">
+                <!-- <h3 class="title">使用說明</h3>                 -->
+
+                <div class="location-center">
+                    <p class="align-left content-title">特別說明</p>
+                    <blockquote>此工具為「2021台北馬拉松配速計算機+配速手環」的2022年版，因為時間匆促<small>(時間有限QQ)</small>，想了解整個專案緣起，還請移駕參考<br><a href='https://github.com/LilMP/pace42.195' 
+                        target='_blank'>2021台北馬拉松配速計算機+配速手環</a></blockquote>
+                    
+                    <p class="align-left content-title">主要內容更動</p>
+                    <ol class="align-left" style="color: white;">
+                        <li>賽道路線圖</li>
+                        <li>路線預習影片</li>
+                        <li>表格中的注意事項文字(因應路線變動)</li>
+                        <li>配速手環中的日期、結尾語</li>
+                    </ol>
+
+                    <hr>
+        
+                    <p class="align-left">
+                        蒐集所有台北馬拉松的注意事項，要「做功課」看這裡就對啦!<br /><br />本工具根據台北馬賽道狀況，做配速調整，還可以自製配速手環!!!<br />如果你是馬拉松新手，這個工具可以幫你減輕一些負擔😊
+                    </p>
+                    <!-- <p>大家來模擬自己的台北馬配速，制定屬於個人的完賽配速計畫吧~🎉</p> -->
+
+                    <p class="align-left content-title">三大重點功能</p>
+                    <ol class="align-left">
+                        <li><span class="function-tag">配速計算機</span> 輸入目標完賽時間，產生配速建議</li>
+                        <li><span class="function-tag">製作配速手環</span> 自動代入結果，可直接列印使用</li>
+                        <li><span class="function-tag">比賽資訊蒐集</span> 路線介紹、關門時間、補給策略整理</li>
+                    </ol>
+                    <!-- <div class="align-left">
+                                                <p class="features">1.【配速計算機】</p> 
+                                                <p class="features">2.【製作配速手環】</p>
+                                                <p class="features">3.【比賽資訊蒐集】</p>                        
+                                            </div> -->
+                    <p class="align-left content-title">特色</p>
+                    <ul class="align-left">
+                        <!--style="list-style: none;text-indent:-1em;"-->
+                        <li>
+                            <p class="feature-tag">好實用</p> 配速根據賽道狀況調整，避免為了追配速<u>把自己搞爆</u>
+                        </li>
+                        <li>
+                            <p class="feature-tag">好貼心</p> 配合水站/補給，每2.5K顯示配速時間，進站時確認即可
+                        </li>
+                        <li>
+                            <p class="feature-tag">好細緻</p> 根據不同完賽時間，設定不同的<u>配速調整參數</u>
+                        </li>
+                        <li>
+                            <p class="feature-tag">好漂釀</p> 依照模擬結果，自製精美<u>配速手環</u>❤️
+                        </li>
+                        <li>
+                            <p class="feature-tag">好佛心</p> <u>免費</u>工具、<u>無廣告</u>
+                        </li>
+                        <li>
+                            <p class="feature-tag">好懶人</p> 保留前次輸入內容，無須重複輸入(<u>沒有傳送</u>任何資料!)
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div id='Peru' class='tabcontent'>
+                <div class="location-center align-left">
+                    <p>賽前滿心期待地做功課、設定配速，卻擔心實際執行成效不彰嗎？想要輕鬆掌握
+                        <span class="feature-tag">配速</span>、
+                        <span class="feature-tag">進站時機</span>、<span class="feature-tag">吃膠提醒</span>、<span
+                            class="feature-tag">關門時間</span>，你需要的是配速手環!!💪<br>比賽時戴在手上，方便隨時確認
+                    </p>
+                    <div class="location-center">
+                        <img src="paceband.jpg" alt="paceband" width="100%" style=" max-height: 100%;">
+                    </div>
+                    <p class="content-title">操作說明</p>
+                    <ol>
+                        <li>於計算機首頁選擇全馬/半馬</li>
+                        <li>輸入目標完賽時間，點擊enter按鈕</li>
+                        <li>滑到最下面點選<u>❤️製作配速手環❤️</u></li>
+                        <li>自動產生pdf檔案供下載(如無反應請使用chrome瀏覽器喔~)</li>
+                        <li>寫下個人提醒、護貝或是用膠帶雙面黏貼</li>
+                    </ol>
+                    <p>就是這麼簡單!</p>
+                    <p class="align-left">對市民跑者而言，跑步除了享受比賽當下之外，賽前做功課、研究賽道、制訂計劃然後執行，都是過程中充滿樂趣的一部份。</p>
+
+                    <blockquote>戴上配速手環，比賽的時候會有種安心的感覺吧</blockquote>
+                    <br>
+                    這是我們的期許😊😊😊
+                </div>
+            </div>
+            <div id="Paris" class="tabcontent">
+                <!-- <h3>Paris</h3>
+                <p>Paris is the capital of France.</p> -->
+                <div class="location-center">
+                    <p class="align-left content-title">路線資訊</p>
+                    <ul class="align-left">
+                        <li>路線說明 (<a href='https://www.taipeicitymarathon.com/place-map.php' class='small-btn'
+                                target='_blank'>台北馬拉松官方網站</a>)</li>
+                        <li>關門時間 (<a href='https://www.taipeicitymarathon.com/TIME-LIMIT.php' class='small-btn'
+                                target='_blank'>台北馬拉松官方網站</a>)</li>
+                    </ul>
+                    <p class="align-left content-title">注意事項</p>
+                    <ul class="align-left">
+                        <li>如果下雨或怕冷的話，可以在賽前穿輕便雨衣保暖，起跑後再脫掉</li>
+                        <li>上坡頻率快一點、步伐小一點</li>
+                        <li>下坡身體稍微往後仰、步伐跨大一點</li>
+                    </ul>
+                    <p class="align-left content-title">路線預習</p>
+                    <p class="align-left">
+                        🏃‍♂️🏃‍♀️跟著影片直接「跑」一次吧！(來源: <a href="https://www.youtube.com/channel/UCDLI-SV_sqB-hmzrvLAJCHw"
+                            class='small-btn' target="_blank"></i>中華民國路跑協會</a>)
+                    </p>
+
+                    <ul class="align-left">
+                        <li>半馬</li>
+                    </ul>
+                    <!-- <iframe class="video" width="100%" height="315" src="https://www.youtube.com/embed/AVcT26sr0CY"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe> -->
+                    <div class="wrapper">
+                        <div class="youtube" data-embed="ZhMdg-h4PAM">
+                            <div class="play-button"></div>
+                        </div>
+                    </div>
+                    <ul class="align-left">
+                        <li>全馬</li>
+                    </ul>
+                    <div class="wrapper">
+                        <div class="youtube" data-embed="SkT4Xt6BYcw">
+                            <div class="play-button"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+            
+
+            <div id='Armsterdam' class="tabcontent">
+                <div class="location-center align-left">
+                    <blockquote>很棒的工具,請問能否加入各區起跑時間?</blockquote>
+                    <p><span class="ans-tag">Ans</span>
+                        因為台北馬採取的是鳴槍後波段式放人,目前找不到時間相關資料,所以抱歉目前無法加入...不過這是一個很棒的想法,歡迎賽後回饋,有越多資料未來計算機模擬結果會越來越精準!
+                    </p>
+                    <blockquote>身為只會吃跟拉的新手,如果加上補給內容跟廁所資訊就更棒了(會不會太貪心XD)</blockquote>
+                    <p><span class="ans-tag">Ans</span>
+                        原本官方的地圖上就有標注廁所了(可以搭配結果頁面一起查看);至於補給的話,台北馬官方應該是只有提供水站跟海綿站,會提供水跟運動飲料(私補我就不知道了XD)
+                    </p>
+                    <blockquote>我用這個工具算出來的模擬配速是前慢後快,以新手來說這樣我後面跟得上或追得回來嗎?</blockquote>
+                    <p><span class="ans-tag">Ans</span>
+                        我們提供的是一種對於新手來說「比較不容易跑爆」的配速建議,基本上是以均速完賽為原則,特定區間才做微調,所以如果會擔心後面跑不到,那可能要把目標時間降低一點點喔😅
+                    </p>
+                    <blockquote>能否提供客製化欄位/甚至自訂內容供進階跑者使用呢?</blockquote>
+                    <p><span class="ans-tag">Ans</span> 持續構思開發中,敬請期待!</p>
+                    <blockquote>如果有技術問題或想回饋意見,該怎麼聯繫開發者呢?</blockquote>
+                    <p><span class="ans-tag">Ans</span> 可以私訊<a class="small-btn"
+                            target="_blank" href="https://www.instagram.com/yenzichun/">小M平</a></p>
+                </div>
+            </div>
+
+            
+            <hr style="margin: 5px 0;border:none; border-top:1px solid #ccc;">
+            <small>Copyright © 2022 <a class="small-btn" target="_blank"
+                    href="https://www.instagram.com/yenzichun/">小M平</a></small>
+
+            <!-- <small>
+                無廣告、無營利，更多細節與網站說明請看<a href="https://github.com/LilMP/pace42.195" target="_blank"
+                    class="small-btn">這裡
+                </a>
+                </br>
+                ※ 注意：非官方工具、如製作手環功能無反應,請嘗試其他瀏覽器 ※
+                </br>
+                <a target="_blank" href="https://icons8.com/icon/35835/running" class="small-btn">Running</a>
+                icon by <a target="_blank" href="https://icons8.com" class="small-btn">Icons8</a>
+            </small> -->
+
+        </div>
+        <div>
+            <ul class="container footer share-inline" style="margin: 0 0 10pt 0">
+                <li></li>
+                <li>分享：</li>
+                <li>
+                    <!-- <button class="share-btn social-media-btn" id='fbBtn' -->
+                    <div class="share-btn social-media-btn"
+                        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://lilmp.github.io/pace42.195/','','width=626,height=436');return false;">
+                        <!-- <i class="fab fa-facebook-f"></i> -->
+                        <!-- <i class="lab la-facebook-f la-4x"></i> -->
+                        <i class="lab la-facebook-square la-2x"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="share-btn social-media-btn"
+                        onclick="window.open('https://line.naver.jp/R/msg/text/?https://lilmp.github.io/pace42.195/','','width=626,height=436');return false;">
+                        <!-- <i class="fab fa-line"></i> -->
+                        <!-- <i class="far fa-comment"></i> -->
+                        <i class="lab la-line la-2x"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="share-btn social-media-btn" onclick="share()">
+                        <!-- <i class="fas fa-share-alt"></i> -->
+                        <i class="las la-share-alt-square la-2x"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="fb-like" data-href="https://lilmp.github.io/pace42.195" data-layout="button_count"
+                        data-action="like" data-size="small" data-share="false"></div>
+
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="fb text-center">
+            <div class="fb-like" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true"
+                data-share="true"></div>
+        </div> -->
+
+
+
+
+        <!-- <button class="share-btn social-media-btn">
+                <div class="line-it-button" data-lang="zh_Hant" data-type="share-c" data-ver="3"
+                    data-url="https://lilmp.github.io/pace42.195" data-color="default" data-size="small"
+                    data-count="false" style="display: none;"></div>
+                <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async"
+                    defer="defer"></script>
+            </button> -->
+        <!-- <button class="share-btn social-media-btn" id="lineBtn" -->
+
+        <!-- <div class="share-btn social-media-btn"
+                onclick="window.open('http://instagram.com/sharer.php?u=https://www.minwt.com&media=https://www.miwnt.con/logo.jpg&description=梅問題教學網','','width=626,height=436');return false;">
+                <i id="insta" class="lab la-instagram la-2x"></i>
+            </div> -->
+        <!-- <button class="share-btn social-media-btn" onclick="share()"> -->
+
+
+
+        <hr>
+        <div id='inputFinishTime'>
+            <div class="radio footer">
+                <input type="radio" id="fullm" name="mtype" value="fullm" checked><label for="fullm">全馬</label>
+                <input type="radio" id="halfm" name="mtype" value="halfm"><label for="halfm">半馬</label><br>
+
+            </div>
+            <ul class="share-inline footer">
+                <li>目標時間</li>
+                <li><input type="number" name="" id="hh" rows="1" charswidth="3" placeholder="HH"
+                        onclick="this.select()"></input></li>
+                <li style="font-weight: bold;">:</li>
+                <li><input type="number" name="" id="mm" rows="1" charswidth="3" placeholder="MM"
+                        onclick="this.select()"></input></li>
+                <li style="font-weight: bold;">:</li>
+                <li><input type="number" name="" id="ss" rows="1" charswidth="3" placeholder="SS"
+                        onclick="this.select()"></input></li>
+                <li><button class="" id='calBtn' onclick="cal()">Enter</button></li>
+            </ul>
+            <!-- <button class="footer" id='calBtn' onclick="cal()">GO!</button> -->
+            <!-- 目標時間
+            <input type="number" name="" id="hh" rows="1" charswidth="3" placeholder="HH"
+                onclick="this.select()"></input>
+            <div style="display:inline-block;vertical-align:middle;font-size:40px;">:</div>
+            <input type="number" name="" id="mm" rows="1" charswidth="3" placeholder="MM"
+                onclick="this.select()"></input>
+            <div style="display:inline-block;vertical-align:middle;font-size:40px;">:</div>
+            <input type="number" name="" id="ss" rows="1" charswidth="3" placeholder="SS"
+                onclick="this.select()"></input> -->
+        </div>
+
+
+
+
+    </div>
+    <div>
+        <div id="result"></div>
+        <table id="tblToPrint"></table>
+    </div>
+    <hr id="toDisappear">
+    <div class="footer">
+        <small>
+            ※ 注意：網友自製分享、非官方工具、無廣告、無營利 ※
+            <!-- 網友自製分享、無廣告、無營利 -->
+            <!-- 更多細節與網站說明請看<a href="https://github.com/LilMP/pace42.195" target="_blank" class="small-btn">這裡</a> -->
+            </br>
+            <!-- ※ 注意：非官方工具、如製作手環功能無反應，請嘗試其他瀏覽器 ※ -->
+            <!-- </br> -->
+            <a target="_blank" href="https://icons8.com/icon/35835/running" class="small-btn"></a>
+            網站圖示來源：<a target="_blank" href="https://icons8.com" class="small-btn">Icons8</a><br>
+            Copyright © 2022 <a class="small-btn" target="_blank" href="https://www.instagram.com/yenzichun/">小M平</a>
+        </small>
+        <!-- <small>無廣告、無營利，更多細節與網站說明請看<a href="https://github.com/LilMP/pace42.195" target="_blank" class="small-btn">這裡
+            </a></small>
+        </br>
+        <small>※ 注意：非官方工具、如製作手環功能無反應,請嘗試其他瀏覽器 ※</small>
+        <small><a target="_blank" href="https://icons8.com/icon/35835/running" class="small-btn">Running</a> icon by <a
+                target="_blank" href="https://icons8.com" class="small-btn">Icons8</a></small> -->
+
+
+        <!-- <div class="info-page">
+                <p class='title'>share</p>
+                <img class='title'
+                    src="https://www.taipeicitymarathon.com/ck_imgs/%E7%AB%8B%E9%AB%94%E8%B7%AF%E7%B7%9A%E5%85%A8%E7%A8%8B(1).jpg"
+                    alt="map" width="500" height="600">
+            </div> -->
+    </div>
+    <!-- <div class="container">
+            <button class="share-btn">
+                <i class="fas fa-share-alt"></i>
+            </button>
+            <div class="info-page">
+                <p class='title'>share</p>
+                <img class='title'
+                    src="https://www.taipeicitymarathon.com/ck_imgs/%E7%AB%8B%E9%AB%94%E8%B7%AF%E7%B7%9A%E5%85%A8%E7%A8%8B(1).jpg"
+                    alt="map" width="500" height="600">
+            </div>
+        </div> -->
+
+    </div>
+
+</body>
+<!-- include necessary js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+
+<script>
+    const shareBtn = document.querySelector('#info');
+    const closeBtn = document.querySelector('.close');
+    const shareOptions = document.querySelector('.info-page');
+
+
+
+    function openTab(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+    fullStopIcon = ['----', '<i class="las la-tint"></i>', '<i class="las la-cheese"></i>', '<i class="las la-tint"></i>', '<i class="las la-cheese"></i>', '<i class="las la-tint"></i><i class="las la-restroom"></i>', '<i class="las la-chees"></i><i class="las la-restroom"></i>', '<i class="las la-tint"></i>', '<i class="las la-cheese"></i><i class="las la-restroom"></i>', '<i class="las la-tint"></i><i class="las la-restroom"></i>', '<i class="las la-cheese"></i><i class="las la-restroom"></i>', '<i class="las la-tint"></i><i class="las la-restroom"></i>', '<i class="las la-cheese"></i><i class="las la-restroom"></i>', '<i class="las la-tint"></i><i class="las la-restroom"></i>', '<i class="las la-cheese"></i><i class="las la-restroom"></i>', '<i class="las la-tint"></i>', '----']
+    halfStopIcon = []
+
+    // videoSrc = ["https://www.youtube.com/embed/AVcT26sr0CY", "https://www.youtube.com/embed/ACSAmSicGvo"]
+    shareBtn.addEventListener('click', () => {
+        shareOptions.classList.toggle('active');
+
+        // 原本作法:再把videoSrc加回來
+        // console.log(shareOptions.classList);
+        // video = document.getElementsByClassName('video');
+        // for (i = 0; i < video.length; i++) {
+        //     video[i].src = videoSrc[i];
+        // }
+
+        // lazy load youtube: 
+        // 先以縮圖+playBtn呈現 點選按鈕後才會載入並自動撥放
+        var youtube = document.querySelectorAll(".youtube");
+        for (var i = 0; i < youtube.length; i++) {
+
+            var source = "https://img.youtube.com/vi/" + youtube[i].dataset.embed + "/0.jpg";
+
+            var image = new Image();
+            image.src = source;
+            image.addEventListener("load", function () {
+                youtube[i].appendChild(image);
+            }(i));
+
+            youtube[i].addEventListener("click", function () {
+
+                var iframe = document.createElement("iframe");
+                iframe.setAttribute("class", "video");
+                iframe.setAttribute("frameborder", "0");
+                iframe.setAttribute("allow", "autoplay"); //這行必須加才有用
+                iframe.setAttribute("allowfullscreen", "");
+                iframe.setAttribute("src", "https://www.youtube.com/embed/" + this.dataset.embed + "?rel=0&showinfo=0&autoplay=1");
+
+                this.innerHTML = "";
+                this.appendChild(iframe);
+
+            });
+        };
+
+        document.getElementById("defaultOpen").click();
+
+    })
+    closeBtn.addEventListener('click', () => {
+
+        shareOptions.classList.toggle('active');
+
+        //原本作法: 把video的source替換掉
+        // video = document.getElementsByClassName('video');
+        // for (i = 0; i < video.length; i++) {
+        //     // video[i].style.display = "none";
+        //     // console.log(video[i].src);
+        //     video[i].src = "about:blank"; 
+        // }
+
+        // 把youtube清掉 再加入 playbtn
+        var youtube = document.querySelectorAll(".youtube");
+        for (var i = 0; i < youtube.length; i++) {
+            youtube[i].innerHTML = '';
+            var playBtn = document.createElement("div");
+            playBtn.setAttribute("class", "play-button");
+            youtube[i].appendChild(playBtn);
+        }
+    })
+
+    function share() {
+        if (navigator.share) {
+            navigator.share({
+                title: '2022台北馬配速模擬+自製手環',
+                text: '輸入目標完賽時間、自製配速手環，就是這麼簡單！',
+                url: 'https://lilmp.github.io/pace42.195/',
+            }).then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+        }
+    }
+
+    // var lineBtn = '<div class="line-it-button" data-lang="zh_Hant" data-type="share-c" data-ver="3" data-url="https://lilmp.github.io/pace42.195" data-color="default" data-size="small" data-count="false" style="display: none;"></div>'
+    // document.getElementById('lineBtn').innerHTML = lineBtn;
+    // 用js建造表格
+    // function addTable() {
+    //     var table = document.createElement("table");
+    //     var tr = document.createElement("tr");
+    //     var th = document.createElement("th");
+    //     var td = document.createElement("td");
+    //     td.innerText = "im a td";
+    //     th.innerText = "im a th";
+    //     th.appendChild(tr);
+    //     tr.appendChild(td);
+    //     table.appendChild(th);
+    //     var out = document.getElementById("tblToPrint");
+    //     out.appendChild(table);
+    // }
+    // append column to the HTML table
+
+    // create DIV element and append to the table cell
+    function createCell(cell, id, text, style) { //在cell處新增div並用class style控制樣式
+        var div = document.createElement('div'), // create DIV element
+            txt = document.createTextNode(text); // create text node
+        div.appendChild(txt);
+        // div.innerHTML = text;
+        div.setAttribute('id', id); // append text node to the DIV
+        div.setAttribute('class', style); // set DIV class attribute
+        div.setAttribute('className', style); // set DIV class attribute for IE (?!)
+        cell.appendChild(div); // append DIV to the table cell
+    }
+    timeForHighlight = "" // 配速著色提示
+    function appendColumn(table, columnName, arrData, color) {
+        var tbl = table, // table reference
+            i,
+            cellStyle
+
+        // (checked == 'halfm') ? timeForHighlight = 6621 : timeForHighlight = 4421
+        // (checked == 'halfm') ? timeForHighlight = 6000 : timeForHighlight = 4000
+        (checked == 'halfm') ? timeForHighlight = 9000 : timeForHighlight = 9000
+
+        newTable = document.createElement('table');
+        newTable.setAttribute('id', "tableToAppend")
+        newTable.innerHTML = tbl.innerHTML
+        // console.log(tbl.rows.length)
+        if (tbl.rows.length == 0) { // 當要在空表格新增欄位時
+            newTable.insertRow(-1);
+            createCell(newTable.rows[0].insertCell(0), "\u00A0" + columnName + "\u00A0", "\u00A0" + columnName + "\u00A0", "tHeader ");
+            for (i = 1; i < arrData.length + 1; i++) {
+                if (i % 2 == 0) { cellStyle = color + " even " } else { cellStyle = color + " odd " } // 分偶數列 奇數列
+                newTable.insertRow(i);
+                if (i == arrData.length) { createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), "\u00A0" + arrData[i - 1] + "\u00A0", "\u00A0" + arrData[i - 1] + "\u00A0", "tFooter " + cellStyle); }
+                else { createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), "\u00A0" + arrData[i - 1] + "\u00A0", "\u00A0" + arrData[i - 1] + "\u00A0", "tCell " + cellStyle); }
+            }
+            // newTable.insertRow(arrData.length);
+            // createCell(newTable.rows[arrData.length].insertCell(0), "終點", "tFooter " + color);
+        }
+
+        // open loop for each row and append cell
+        for (i = 0; i < tbl.rows.length; i++) { // 在現有表格新增欄位
+            if (i % 2 == 0) { cellStyle = color + " even " } else { cellStyle = color + " odd " } // 分偶數列 奇數列
+            if (i == 0) { createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), "\u00A0" + columnName + "\u00A0", "\u00A0" + columnName + "\u00A0", "tHeader "); }
+            else if (i == tbl.rows.length - 1) {
+                if (columnName == "模擬配速" || columnName == "分段" || columnName == "模擬配速(不進站)") {
+                    // console.log(arrData[i - 1] - pace)
+                    if (arrData[i - 1] - pace > timeForHighlight) {
+                        createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), "\u00A0" + moment.utc(arrData[i - 1]).format("m'ss\"") + "\u00A0", "\u00A0" + moment.utc(arrData[i - 1]).format("m'ss\"") + "\u00A0", "tFooter" + cellStyle);
+                    } else if (arrData[i - 1] - pace < -timeForHighlight) {
+                        createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), "\u00A0" + moment.utc(arrData[i - 1]).format("m'ss\"") + "\u00A0", "\u00A0" + moment.utc(arrData[i - 1]).format("m'ss\"") + "\u00A0", "tFooter" + cellStyle)
+                    } else {
+                        createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), "\u00A0" + moment.utc(arrData[i - 1]).format("m'ss\"") + "\u00A0", "\u00A0" + moment.utc(arrData[i - 1]).format("m'ss\"") + "\u00A0", "tFooter" + cellStyle)
+                    }
+
+                } else {
+                    createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), "\u00A0" + arrData[i - 1] + "\u00A0", "\u00A0" + arrData[i - 1] + "\u00A0", "tFooter " + cellStyle);
+                }
+            }
+            // else { createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), "\u00A0" + arrData[i - 1] + "\u00A0", "tCell " + cellStyle); }
+            else {
+                if (columnName == "模擬配速" || columnName == "分段") {
+                    // console.log(arrData[i - 1] - pace)
+                    if (arrData[i - 1] - pace > timeForHighlight) {
+                        createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), checked + 'id' + i, "\u00A0" + moment.utc(arrData[i - 1]).format("m'ss\"") + "\u00A0", "tCell" + cellStyle)
+                    } else if (arrData[i - 1] - pace < -timeForHighlight) {
+                        createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), checked + 'id' + i, "\u00A0" + moment.utc(arrData[i - 1]).format("m'ss\"") + "\u00A0", "tCell" + cellStyle)
+                    } else {
+                        createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), checked + 'id' + i, "\u00A0" + moment.utc(arrData[i - 1]).format("m'ss\"") + "\u00A0", "tCell" + cellStyle)
+                    }
+                }
+                else {
+                    createCell(newTable.rows[i].insertCell(newTable.rows[i].cells.length), "\u00A0" + arrData[i - 1] + "\u00A0", "\u00A0" + arrData[i - 1] + "\u00A0", "tCell " + cellStyle);
+                }
+            }
+
+        }
+        return newTable.innerHTML
+    }
+    function deleteColumn(id, headerName) {
+
+        // 取出現有表格header 存成陣列
+        var arrHeader = Array.prototype.map.call(document.querySelectorAll('#' + id + ' .tHeader'), function (div) {
+            return div.innerHTML;
+        });
+
+        var tbl = document.getElementById(id) // table reference
+        tblText = tbl.innerHTML
+
+        // console.log('deleting:' + headerName)
+        // console.log(arrHeader)
+        colToDelete = arrHeader.indexOf(headerName)
+        // console.log("arrHeader index:" + colToDelete)
+
+        i
+        newTable = document.createElement('table');
+        newTable.setAttribute('id', "tableToPrint")
+        newTable.innerHTML = tblText
+        // console.log(newTable)
+
+        // delete cells with index greater then 0 (for each row)
+        for (i = 0; i < tbl.rows.length; i++) {
+            newTable.rows[i].deleteCell(colToDelete);
+        }
+        return newTable
+    }
+    function addTable(tableID) {
+        var table = document.createElement("table");
+        table.setAttribute('id', tableID)
+        table.innerHTML = appendColumn(table, "里程", arrStop, " white ")
+        return table
+    }
+    function loadHMS() {
+        // 程式起始點: 第一次會是空值 如果有輸入過從local storage取出值
+        // let finishTime = localStorage.getItem('time')
+        // document.getElementById('time').value = finishTime
+        // console.log(finishTime)
+        let hh = localStorage.getItem('hh')
+        document.getElementById('hh').value = hh
+        let mm = localStorage.getItem('mm')
+        document.getElementById('mm').value = mm
+        let ss = localStorage.getItem('ss')
+        document.getElementById('ss').value = ss
+
+    }
+    function render(display) { // 顯示結果
+        document.getElementById('result').style.display = display
+    }
+    function downloadwithbrowser() {
+        var link = ''
+        // copy result table
+        var tbl = document.getElementById('my-tbl') // table reference
+
+        tblText = tbl.innerHTML
+
+        tableToPrint = document.createElement('table');
+        tableToPrint.setAttribute('id', "tableToPrint")
+        tableToPrint.innerHTML = tblText
+
+        // arrRemind_short = ["人多", "熱開", "目標配速", "不超速", "上橋", "上下坡", "不超速", "上高架", "上坡穩住", "勿超速", "下橋", "進河濱", "不要慢", "沒有牆", "快到了", "準備開", "開！"]
+        // 提醒欄位改空白(\u00A0)
+        arrRemind_short = ['\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0', '\u00A0']
+
+        // var tableInfo = Array.prototype.map.call(document.querySelectorAll('#my-tbl tr'), function (tr) {
+        //     return Array.prototype.map.call(tr.querySelectorAll('td'), function (td) {
+        //         if (td.querySelectorAll('div') != null) return Array.prototype.map.call(td.querySelectorAll('div'), function (div) { return div.innerHTML; });
+        //         else { return td.innerHTML; }
+        //     });
+        // });
+        var finishPace;
+        (checked == 'fullm') ? finishPace = finishTime / 42.2 : finishPace = finishTime / 21.1
+
+        summary3 = ''
+        summary3 += "<div id='summary3' class='summary3'><div><b>2022台北馬配速手環</b></div>"
+        // summary3 += "<div>前半馬：<b>" + moment.utc(moment(firstHalfTime)).format("H:mm:ss") + "</b>&emsp;均速：<b>" + moment.utc(moment(firstHalfPace)).format("m'ss\"") + "</b></div>"
+        // summary3 += "<div>後半馬：<b>" + moment.utc(moment(secondHalfTime)).format("H:mm:ss") + "</b>&emsp;均速：<b>" + moment.utc(moment(secondHalfPace)).format("m'ss\"") + "</b></div>"
+        summary3 += "<div style='float:left;margin-left:10px;'><i class='las la-clock'></i> " + fTime.format("H:mm:ss") + "</div>"
+        summary3 += "<div style='margin-bottom:5px;float:right;margin-right:10px;text-align:left;'><i class='las la-tachometer-alt'></i> " + moment.utc(moment(finishPace)).format("m'ss\"") + "</div></div>"
+
+
+
+        document.getElementById('tblToPrint').style.display = "none"
+        var sTable = addTable('tblToPrint')
+        // sTable.innerHTML = appendColumn(sTable, "分段", paceAdjustSlope, "  ")
+        sTable.innerHTML = appendColumn(sTable, "分段", paceAdjustStop, "  ")
+        sTable.innerHTML = appendColumn(sTable, "累積", timeAccumulated, "  ")
+        // console.log(sTable)
+        var sTable2 = addTable('tableToPrint')
+        sTable2.innerHTML = appendColumn(sTable2, "關門", arrCutTime, "  ")
+        sTable2.innerHTML = appendColumn(sTable2, "提醒", arrRemind_short, " customRemind ")
+        // console.log(sTable2)
+
+        paceBand_left = document.createElement('div')
+        paceBand_left.setAttribute('class', 'halfBand')
+        paceBand_left.innerHTML += summary3
+        paceBand_left.appendChild(sTable)
+        paceBand_left.innerHTML += "<div style='margin-top:5px;font-size:x-small;color:gray;text-align:center;'>2022.12.18</br>跑動臺北 非我莫屬</div>"
+        // console.log(paceBand_left)
+
+        paceBand_right = document.createElement('div')
+        paceBand_right.setAttribute('class', 'halfBand')
+        paceBand_right.innerHTML += summary3
+        paceBand_right.appendChild(sTable2)
+        paceBand_right.innerHTML += "<div style='margin-top:5px;font-size:x-small;color:gray;text-align:center;'>2022.12.18</br>跑動臺北 非我莫屬</div>"
+        // console.log(paceBand_right)
+
+        explain = document.createElement('div')
+        explain.setAttribute('class', 'explain')
+        explain.innerHTML = "<small>按下<span style='color:#9C1AA9'><u>製作配速手環</u></span>後，會跳出依據模擬結果產生的配速表供下載。</br>列印本頁即可製作自己專屬的配速手環!</br></br><b>手環說明:</b></br>考量不同類型的跑者需求，同時兼顧簡潔與實用，提供兩款手環樣式：</br><span style='background-color:#A9CEEA'>A款顯示【里程、分段(配速)、累積(時間)】</span></br><span style='background-color:#FFC6D0'>B款顯示【里程、關門(時間)、自訂提醒】</span></br>在提醒欄位寫上給自己的提醒事項吧!!</br>(ex: 進站、補膠、上橋、穩住...自由發揮)</br></br><b>手環製作:</b></br>已貼心預設A4橫式列印<sup style='font-size:x-small;color:#2774B2'>[1]</sup>，列印出來後，沿虛線<sup style='font-size:x-small;color:#2774B2'>[2]</sup>剪下手環，經護貝或用膠帶黏貼正反兩面後，就有一個防水的配速手環囉~</br></br>最後送大家動畫「藍色時期」裡的一句話<blockquote style='padding: 5px 20px 15px 8px;font-weight:bold;color:black;border-left:0.25em solid #8b949e;margin: 10px 50px 0px 0px;background-color:#eeeeee'>做著自己喜歡的事情又很勤奮的人，是無敵的！</blockquote></br><hr><sup style='font-size:x-small;color:#2774B2'>[1]:<span style='color:black;'>&nbsp;經實測，A4的寬度21cm剛好約等於一般人手圍大小</br>&nbsp;&nbsp;&emsp;(是不是很神奇!!)</span></sup></br><sup style='font-size:x-small;color:#2774B2'>[2]:<span style='color:black;'>&nbsp;沒有輔助線剪不直的手殘黨(例如我)必備</br>&nbsp;&nbsp;&emsp;(是不是很貼心!!)</span></sup></br></br><span style='font-size:x-small;'>Contributor: 小M平</span></small>"
+
+        paceBand = document.createElement('div')
+        paceBand.appendChild(paceBand_left)
+        paceBand.appendChild(paceBand_right)
+        paceBand.appendChild(explain)
+
+        sTable.className = 'page';
+        sTable2.className = 'page';
+
+        // CREATE A WINDOW OBJECT.
+        var win = window.open('', '', 'height=780,width=780');
+
+        // win.document.head.append("<link rel='stylesheet' href='https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css'>");
+        // console.log(win.document.head);
+
+        // 列印頁的css
+        var htmlToPrint = '' +
+            // "<link rel='stylesheet' href='https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css'>" +
+
+            '<style type="text/css">' +
+            // '.page {width: 21cm;min-height: 29.7cm;padding: 2cm;margin: 1cm auto;border: 1px #D3D3D3 solid;border-radius: 5px;background: white;box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);}'+
+            // '@page {size: A4;margin: 0;}'+
+            // '@media print {  html, body {    width: 210mm;    height: 297mm;  }'+
+            // '.customRemind {width:52px;}' +
+            '.customRemind {width:60.82px;}' +
+            'blockquote::before{font-family:Arial; content: "\\201C";  color:#8b949e; font-size:2em;  left: 10px;  top:-10px;}' + //淡綠色#78C0A8 https://codepen.io/jimmycow/pen/LmjVaz
+            '.explain {display:inline-block;width:310px;vertical-align:top;padding-top:100px;}' +
+            // '.halfBand, .explain { display:inline-block;padding-top:100px; border-left:1px dashed gray;border-right:1px dashed gray;}' +
+            '.halfBand { margin-left:20px;height:673px;display:inline-block;padding-top:100px; border-left:1px dashed gray;border-right:1px dashed gray;}' +
+            '.summary3 { margin:0px 0px 0px 0px;text-align:center;}' +
+            'body > div > div:nth-child(2), .explain {margin-left:50px}' + // band2 margin-left
+            'table th, table td {' +
+            'text-align: center;' +
+            // 'border:1px solid #000;' +
+            'width: auto;' +
+            // 'padding:0px 8px 0px 8px;' +
+            'padding:0px 0px 0px 0px;' +
+            // "font-size: 1em;" +
+            '}' +
+            "#tblToPrint > tbody > tr > td > .even {background-color:white; }" +
+            "#tblToPrint > tbody > tr > td > .odd {background-color:#A9CEEA;color:black; padding: 2px 0px;}" + //#3e92d1 深藍色 A9CEEA 淺藍色
+            "#tblToPrint > tbody > tr > td > .even {border-bottom:2px solid gray; padding: 2px 0px;}" +
+            "#tableToPrint > tbody > tr > td > .even {background-color:white; }" + // FFECEF 深粉紅 ffc6d0 淺粉紅
+            "#tableToPrint > tbody > tr > td > .odd {background-color:#ffc6d0; padding: 2px 0px;}" +
+            "#tableToPrint > tbody > tr > td > .even {border-bottom:2px solid gray;  padding: 2px 0px;}" +
+            ".gray {background-color: #E5E5E5}" +
+            // 'table {padding:5px;display:inline-block;margin: 0px 50px 0px 50px;border-collapse: collapse;border-spacing: 0;border: 1px solid black;}' +
+            'table {padding:0px;display:inline-block;margin: 0px 0px 0px 0px;border-collapse: collapse;border-spacing: 0;border: 2px solid black;}' +
+            'td {height: 100%; }' +
+            '.tCell {border-bottom: 1px dashed gray;}' +
+            '.tHeader {background-color: #FFC700;  padding: 3px 0px;}' +
+            "table>tbody>tr:nth-child(1)>td>div {border-bottom: 2px solid gray;font-weight:bold;}" +
+            "*{font-family: Microsoft JhengHei;font-size: 1em;}" +
+            '@page { size: A4 landscape; margin: 0px; }' + // 加這行列印時轉橫向 (直向portrait) 
+            "@media print {body {-webkit-print-color-adjust: exact;font-size: 0.8em;  margin:0}}" + // 加這行列印時才會有顏色
+            '</style>';
+        // htmlToPrint += paceBand.outerHTML;
+
+        // link = "<link rel='stylesheet' href='https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css'>"
+        // win.document.head.append("<link rel='stylesheet' href='https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css'>")
+        // htmlToPrint = link + htmlToPrint
+        // win.document.write(htmlToPrint)
+
+        // win.document.write(htmlToPrint);
+
+        win.document.write('<html><head>');
+        // win.document.write('<title>Profile</title>');   // <title> FOR PDF HEADER.
+        // win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+        win.document.write("<link rel='stylesheet' href='https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css'>");
+        win.document.write('</head>');
+
+        win.document.write('<body >');
+        win.document.write(htmlToPrint);
+        win.document.write(paceBand.outerHTML);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+        win.document.write('<script type="text/javascript">addEventListener("load", () => { print(); })</');
+        win.document.write('script></body></html>');
+        // console.log(win.document.head);
+        win.document.close();
+        win.focus();
+
+        // win.print();
+        // win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+        // win.print();    // PRINT THE CONTENTS.
+    }
+
+    function shutTimeInfo() {
+        // console.log(x)
+        // x.classList.toggle('active');
+        document.querySelector('#shutTime').classList.toggle('active');
+        // info = document.getElementById('shutTime')
+        // info.style.display= null;
+        // alert("根據台北馬推算而來");
+    }
+    function shutTimeInfoOut() {
+        document.querySelector('#shutTime').classList.toggle('active');
+    }
+    function paceTimeInfo() {
+        document.querySelector('#paceTime').classList.toggle('active');
+    }
+    function paceTimeInfoOut() {
+        document.querySelector('#paceTime').classList.toggle('active');
+    }
+
+    function showOrHidMoreInfo(id) {
+        document.querySelector(id).classList.toggle('active');
+    }
+
+    // var input_f = document.getElementById("fullm");
+    // input_f.addEventListener('click', clean);
+    // var input_h = document.getElementById("halfm");
+    // input_h.addEventListener('click', clean);
+
+
+    function clean() {
+        // uid.value = ''
+        // uid.style.display = null
+        hh.value = ''
+        mm.value = ''
+        ss.value = ''
+        hh.style.display = null
+        mm.style.display = null
+        ss.style.display = null
+        localStorage.removeItem('hh')
+        localStorage.removeItem('mm')
+        localStorage.removeItem('ss')
+        document.getElementById("result").innerHTML = ''
+
+        document.querySelector('.main').style.marginTop = null
+        document.querySelector('#inputFinishTime').style.marginTop = "50px"
+        document.querySelector('#inputFinishTime').style.marginBottom = "50px"
+        // document.querySelector('#my-tbl').style.margin = "30px 0px";
+        // document.querySelector('#calBtn').style.margin = "5px 30px";
+        // document.querySelector('#toDisappear').style.display = "block"
+        // document.getElementById("result").style.display = "none"
+        // document.querySelector('#summary2').style.margin = "30px 0px";
+        // document.querySelector('#tblFooterBtns').style.margin = "30px 0px";
+
+        render("none") // 顯示結果
+
+    }
+
+    function cal() {
+
+        // console.log(document.querySelector('input[name="mtype"]:checked').value);
+        checked = document.querySelector('input[name="mtype"]:checked').value;
+
+        let hhh = document.getElementById('hh').value
+        let mmm = document.getElementById('mm').value
+        let sss = document.getElementById('ss').value
+        localStorage.setItem('hh', hhh)
+        localStorage.setItem('mm', mmm)
+        localStorage.setItem('ss', sss)
+
+        fTime = moment(hhh + ':' + mmm + ':' + sss, "HH:mm:ss")
+        // console.log(fTime)
+        document.getElementById("result").innerHTML = ''
+
+
+        cName = ["水站/補給站", "注意事項", "模擬配速", "分段時間", "累積時間"]
+        // 水站里程
+        arrStop = []
+        paceAdjustSlope = [] // 坡度校正後配速
+        paceAdjustStop = [] // 進站時間校正後配速
+        paceTime = [] // 分段時間
+        timeAccumulated = [] // 時間加總
+        sum = 0
+        lv = ""
+
+        if (checked == 'halfm') {
+            for (i = 0; i < 8; i++) {
+                x = i * 2.5 + 2.5
+                arrStop.push(x + "k")
+            }
+            arrStop.push("終點")
+            // 關門時間 cutting time
+            arrCutTime = ["07:36", "07:57", "08:18", "08:40", "09:01", "09:22", "09:45", "10:05", "10:13", "--:--"]
+            // 貼心提醒
+            arrRemind = ["人多、穩跑不推擠", "與全馬路線不同，至金華街前原線折返", "穩定配速", "11.7k上中山橋,補給,調整跑姿", "調整呼吸順順跑", "維持配速", "18.5k處上麥帥一橋,推進不急躁", "右轉南京東路後發動最後衝刺", "開到底就對了!"]
+            // 配速調整
+            time_compensate = [{
+                name: 'lv0',
+                cp_each: [5, 0, 0, 0, 0, 0, 0, 0, -3],// 考量地形跟擁擠的配速調整(ex:第0-2.5k每km慢5秒)
+                // cp_total: 5, //地形影響時間調整(上面加總後*2.5)
+                cp_total: 9.2, //地形影響時間調整(5*2.5-3*1.1)
+                cp_stop: 1.5 // 進站時間差(ie.進站補給花多久時間)
+
+            }, {
+                name: 'lv1',
+                cp_each: [8, 5, 0, 0, 5, 0, 5, 0, -3],
+                // cp_total: 50,
+                cp_total: 54.2,//23*2.5-3*1.1
+                cp_stop: 2
+            }, {
+                name: 'lv2',
+                cp_each: [10, 5, 0, 0, 5, 0, 5, 0, -3],
+                // cp_total: 55,
+                cp_total: 59.2,// 25*2.5-3.3
+                cp_stop: 2.5
+            }, {
+                name: 'lv3',
+                cp_each: [15, 10, 0, 0, 10, 0, 10, 0, -3],
+                // cp_total: 105,
+                cp_total: 109.2,// 45*2.5-3.3
+                cp_stop: 2.5
+            }, {
+                name: 'lv4',
+                cp_each: [20, 10, 0, 0, 10, 0, 10, 0, -3],
+                // cp_total: 117.5,
+                cp_total: 121.7,//50*2.5-3.3
+                cp_stop: 4
+            }, {
+                name: 'lv5',
+                cp_each: [30, 10, 0, 0, 10, 0, 10, 0, -3],
+                // cp_total: 142.5,
+                cp_total: 146.7,//60*2.5-3.3
+                cp_stop: 5
+            }]
+
+            // define runners level            
+            if (fTime.isBefore(moment("1:40:00", "HH:mm:ss"))) lv = 0
+            if (fTime.isBetween(moment("1:40:00", "HH:mm:ss"), moment("1:50:00", "HH:mm:ss"), null, '[)')) lv = 1
+            if (fTime.isBetween(moment("1:50:00", "HH:mm:ss"), moment("2:00:00", "HH:mm:ss"), null, '[)')) lv = 2
+            if (fTime.isBetween(moment("2:00:00", "HH:mm:ss"), moment("2:15:00", "HH:mm:ss"), null, '[)')) lv = 3
+            if (fTime.isBetween(moment("2:15:00", "HH:mm:ss"), moment("2:30:00", "HH:mm:ss"), null, '[)')) lv = 4
+            if (fTime.isSameOrAfter(moment("2:30:00", "HH:mm:ss"))) lv = 5
+            // console.log("lv:" + lv);
+
+            pace = moment.duration(fTime.format("HH:mm:ss")).asMilliseconds() / 21.1 // 平均配速(毫秒)
+            // console.log(moment.utc(pace).format("mm:ss"))
+            x = moment.duration(fTime.format("HH:mm:ss")).asMilliseconds()
+            // console.log(x)
+            paceAdjust = moment.duration(moment(x).diff(moment(time_compensate[lv].cp_total * 1000))).asMilliseconds() / 21.1
+            // console.log(paceAdjust)
+
+            //每個區間跑2.5k 最後一個區間只跑1.1k
+            time_compensate[lv].cp_each.forEach(function (item, i) {
+                // (i<time_compensate[lv].cp_each.length-1)?sum = sum+2.5*(paceAdjust+item*1000)-time_compensate[lv].cp_stop*1000:sum = sum+2.2*(paceAdjust+item*1000)-time_compensate[lv].cp_stop*1000
+                (i < time_compensate[lv].cp_each.length - 1) ? sum = sum + 2.5 * (paceAdjust + item * 1000) : sum = sum + 1.1 * (paceAdjust + item * 1000)
+                timeAccumulated.push(moment.utc(sum).format("H:mm:ss"))
+                paceTime.push(moment.utc((i < time_compensate[lv].cp_each.length - 1) ? 2.5 * (paceAdjust + item * 1000) : 1.1 * (paceAdjust + item * 1000)).format("mm:ss"))
+                // paceAdjustSlope.push(moment.utc(paceAdjust + item * 1000).format("m'ss\""))
+                paceAdjustSlope.push(paceAdjust + item * 1000)
+                paceAdjustStop.push(moment.utc(paceAdjust + item * 1000 - time_compensate[lv].cp_stop * 1000))
+            });
+
+            time10km = moment.duration(moment(timeAccumulated[3], "HH:mm:ss").format("HH:mm:ss")).asMilliseconds() // 10k 累積時間轉成毫秒
+            // firstHalfTime = halfPaceTime + time20km // 前半馬 in 毫秒
+            // firstHalfPace = firstHalfTime / 21.1 //前半馬配速in毫秒
+            pace10k = time10km / 10.0
+            finishTime = moment.duration(timeAccumulated[timeAccumulated.length - 1], "HH:MMmm:ss").asMilliseconds() // 全馬 in 毫秒
+            time11_1k = moment(finishTime).diff(moment(time10km)) // 後半馬 in 毫秒
+            pace11_1k = time11_1k / 11.1 //後半馬配速in毫秒
+        }
+        else if (checked == 'fullm') {
+            for (i = 0; i < 16; i++) {
+                x = i * 2.5 + 2.5
+                arrStop.push(x + "k")
+            }
+            arrStop.push("終點")
+            // 關門時間 cutting time
+            arrCutTime = ["07:04", "07:24", "07:43", "08:03", "08:23", "08:42", "09:02", "09:18", "--:--", "--:--", "10:20", "10:37", "10:58", "11:17", "11:38", "11:57", "12:11"]
+            // 貼心提醒
+            arrRemind = ["起跑人多、穩跑", "杭州南路右轉接愛國東路", "進入目標配速", "穩定呼吸不超速", "14k上中山橋,補給,調整跑姿", "上下坡注意安全", "穩配不超速！", "21k準備上環東高架", "上坡穩住步頻跟呼吸", "26.9k處內湖機廠準備折返", "下橋注意安全", "進河濱", "不要慢！！", "沒有牆！！", "小心腳步，安全為主", "準備開一個！", "開！"]
+            // 配速調整
+            time_compensate = [{
+                name: 'lv0',
+                cp_each: [5, 0, 0, 0, 0, 2, 0, 0, 8, 0, -5, 0, 0, 0, 0, 0, 0,],// 考量地形跟擁擠的配速調整(ex:第0-2.5k每km慢5秒)
+                cp_total: 25, //地形影響時間調整(上面加總後*2.5)
+                cp_stop: 1 // 進站時間差(ie.進站補給花多久時間)
+
+            }, {
+                name: 'lv1',
+                cp_each: [15, 8, 0, 0, 0, 3, 0, 0, 10, 0, -5, 0, 0, 0, 0, 0, 0],
+                cp_total: 77.5,
+                cp_stop: 2.4
+            }, {
+                name: 'lv2',
+                cp_each: [20, 10, 0, 0, 0, 5, 0, 0, 12, 0, -5, 0, 0, 0, 0, 0, 0],
+                cp_total: 105,
+                cp_stop: 3
+            }, {
+                name: 'lv3',
+                cp_each: [25, 20, 0, 0, 0, 6, 0, 0, 15, 0, -5, 0, 0, 0, 0, 0, 0],
+                cp_total: 152.5,
+                cp_stop: 4
+            }, {
+                name: 'lv4',
+                cp_each: [30, 25, 0, 0, 0, 7, 0, 0, 18, 0, -5, 0, 0, 0, 0, 0, 0],
+                cp_total: 187.5,
+                cp_stop: 5
+            }, {
+                name: 'lv5',
+                cp_each: [30, 25, 0, 0, 0, 8, 0, 0, 20, 0, -5, 0, 0, 0, 0, 0, 0],
+                cp_total: 195,
+                cp_stop: 6
+            }]
+
+            // define runners level            
+            if (fTime.isBefore(moment("3:20:00", "HH:mm:ss"))) lv = 0
+            if (fTime.isBetween(moment("3:20:00", "HH:mm:ss"), moment("3:45:00", "HH:mm:ss"), null, '[)')) lv = 1
+            if (fTime.isBetween(moment("3:45:00", "HH:mm:ss"), moment("4:00:00", "HH:mm:ss"), null, '[)')) lv = 2
+            if (fTime.isBetween(moment("4:00:00", "HH:mm:ss"), moment("4:30:00", "HH:mm:ss"), null, '[)')) lv = 3
+            if (fTime.isBetween(moment("4:30:00", "HH:mm:ss"), moment("5:00:00", "HH:mm:ss"), null, '[)')) lv = 4
+            if (fTime.isSameOrAfter(moment("5:00:00", "HH:mm:ss"))) lv = 5
+            // console.log("lv:"+lv);
+
+            pace = moment.duration(fTime.format("HH:mm:ss")).asMilliseconds() / 42.2 // 平均配速(毫秒)
+            // console.log(moment.utc(pace).format("mm:ss"))
+            x = moment.duration(fTime.format("HH:mm:ss")).asMilliseconds()
+            paceAdjust = moment.duration(moment(x).diff(moment(time_compensate[lv].cp_total * 1000))).asMilliseconds() / 42.2
+            time_compensate[lv].cp_each.forEach(function (item, i) {
+                // (i<time_compensate[lv].cp_each.length-1)?sum = sum+2.5*(paceAdjust+item*1000)-time_compensate[lv].cp_stop*1000:sum = sum+2.2*(paceAdjust+item*1000)-time_compensate[lv].cp_stop*1000
+                (i < time_compensate[lv].cp_each.length - 1) ? sum = sum + 2.5 * (paceAdjust + item * 1000) : sum = sum + 2.2 * (paceAdjust + item * 1000)
+                timeAccumulated.push(moment.utc(sum).format("H:mm:ss"))
+                paceTime.push(moment.utc((i < time_compensate[lv].cp_each.length - 1) ? 2.5 * (paceAdjust + item * 1000) : 2.2 * (paceAdjust + item * 1000)).format("mm:ss"))
+                // paceAdjustSlope.push(moment.utc(paceAdjust + item * 1000).format("m'ss\""))
+                paceAdjustSlope.push(paceAdjust + item * 1000)
+                paceAdjustStop.push(moment.utc(paceAdjust + item * 1000 - time_compensate[lv].cp_stop * 1000))
+            });
+
+            // halfPaceTime = 1.1 * moment.duration(moment(paceAdjustSlope[8], "m'ss\"").format("HH:mm:ss")) // 20k配速*1.1km 預設已是毫秒
+            // console.log(moment.utc(paceAdjustSlope[8]).format("HH:mm:ss"))
+            // console.log(1.1 * paceAdjustSlope[8]) // 前半馬最後1.1k 時間 in 毫秒
+            halfPaceTime = 1.1 * paceAdjustSlope[8] // 前半馬最後1.1k 時間 in 毫秒
+            // console.log(moment.utc(1.1 * paceAdjustSlope[8]).format("HH:mm:ss"))
+            // console.log(halfPaceTime)
+            time20km = moment.duration(moment(timeAccumulated[7], "HH:mm:ss").format("HH:mm:ss")).asMilliseconds() // 20k 累積時間轉成毫秒
+            firstHalfTime = halfPaceTime + time20km // 前半馬 in 毫秒
+            firstHalfPace = firstHalfTime / 21.1 //前半馬配速in毫秒
+            finishTime = moment.duration(timeAccumulated[timeAccumulated.length - 1], "HH:MMmm:ss").asMilliseconds() // 全馬 in 毫秒
+            secondHalfTime = moment(finishTime).diff(moment(firstHalfTime)) // 後半馬 in 毫秒
+            secondHalfPace = secondHalfTime / 21.1 //後半馬配速in毫秒
+
+        } else {
+            console.log('something\'s wrong')
+        }
+
+
+
+
+        document.getElementById("result").appendChild(addTable('my-tbl'))
+        // console.log(document.getElementById('my-tbl'))
+        document.getElementById('my-tbl').innerHTML = appendColumn(document.getElementById('my-tbl'), "模擬配速", paceAdjustStop, ' gray ')
+        // document.getElementById('my-tbl').innerHTML = appendColumn(document.getElementById('my-tbl'), "模擬配速(不進站)", paceAdjustSlope, ' gray ')
+        document.getElementById('my-tbl').innerHTML = appendColumn(document.getElementById('my-tbl'), "分段時間", paceTime, ' white')
+        document.getElementById('my-tbl').innerHTML = appendColumn(document.getElementById('my-tbl'), "累積時間", timeAccumulated, ' gray ')
+        document.getElementById('my-tbl').innerHTML = appendColumn(document.getElementById('my-tbl'), '關門時間', arrCutTime, ' white ')
+        document.getElementById('my-tbl').innerHTML = appendColumn(document.getElementById('my-tbl'), "注意事項", arrRemind, ' gray ')
+        // document.getElementById('my-tbl').innerHTML = appendColumn(document.getElementById('my-tbl'), "水站/補給站", fullStopIcon, ' white ')
+        // console.log(timeForHighlight)
+        tHighlight = Math.ceil(timeForHighlight / 1000)
+        // console.log(tHighlight)
+        // shutBtn = document.getElementById('\u00A0關門時間\u00A0')
+        // shutBtn.insertAdjacentHTML('beforeend', '<div id="closeT" onmouseover="shutTimeInfoOut()" onmouseout="shutTimeInfoOut()" class="share-btn social-media-btn"><i class="las la-question-circle"></i><div id="shutTime" class="small-dialog">根據官網推算而來,僅供參考</br>詳情請點上方<i class="las la-info-circle"></i>圖示</div></div>')
+        // shutBtn = document.getElementById('\u00A0模擬配速\u00A0')
+        // shutBtn.insertAdjacentHTML('beforeend', '<div onmouseover="paceTimeInfo()" onmouseout="paceTimeInfoOut()" class="share-btn social-media-btn"><i class="las la-question-circle"></i><div id="paceTime" class="small-dialog">醒目提示配速調整重點</br>比目標均速慢' + tHighlight + '秒以上：<span style="background:#49ad91;color:white;">以綠色顯示</span></br>比目標均速快' + tHighlight + '秒以上：<span style="background:#ff9999;color:black;">以紅色顯示</span></div></div>')
+
+        shutBtn = document.getElementById('\u00A0關門時間\u00A0')
+        shutBtn.insertAdjacentHTML('beforeend', '<div id="closeT" onmouseover="showOrHidMoreInfo(\'#shutTime\')" onmouseout="showOrHidMoreInfo(\'#shutTime\')" class="share-btn social-media-btn"><i class="las la-question-circle"></i><div id="shutTime" class="small-dialog">根據官網推算而來,僅供參考</br>詳情請點上方<i class="las la-info-circle"></i>圖示</div></div>')
+        shutBtn = document.getElementById('\u00A0模擬配速\u00A0')
+        // shutBtn.insertAdjacentHTML('beforeend', '<div onmouseover="showOrHidMoreInfo(\'#paceTime\')" onmouseout="showOrHidMoreInfo(\'#paceTime\')" class="share-btn social-media-btn"><i class="las la-question-circle"></i><div id="paceTime" class="small-dialog">醒目提示配速調整重點</br>比目標均速慢' + tHighlight + '秒以上：<span style="background:#49ad91;color:white;">以綠色顯示</span></br>比目標均速快' + tHighlight + '秒以上：<span style="background:#ff9999;color:black;">以紅色顯示</span></div></div>')
+        shutBtn.insertAdjacentHTML('beforeend', '<div onmouseover="showOrHidMoreInfo(\'#paceTime\')" onmouseout="showOrHidMoreInfo(\'#paceTime\')" class="share-btn social-media-btn"><i class="las la-question-circle"></i><div id="paceTime" class="small-dialog align-left">因應上下坡、人潮,針對配速調整的醒目提示</br><span style="background:#49ad91;color:white;">以綠色顯示</span> 可以跑得 <span style="background:#49ad91;color:white;">慢一點</span> 的區段</br><span style="background:#ff9999;color:black;">以紅色顯示</span> 可以跑得 <span style="background:#ff9999;color:black;">快一點</span> 的區段</div></div>')
+
+
+        //     shareBtn.addEventListener('click', () => {
+        //     shareOptions.classList.toggle('active');
+        // })
+        // closeBtn.addEventListener('click', () => {
+        //     shareOptions.classList.toggle('active');
+        // })
+        // < i class="las la-info-circle la-1_5x" ></ >
+
+
+        if (checked == 'halfm') {
+            // summary 區塊
+            textUpdate = document.getElementById("result").innerHTML;
+            summary2 = ''
+            // summary2 += "<div>均速:" + moment.utc(pace).format("m'ss\"") + "(調整前)</div>"
+            // summary2 += "<div>均速:" + moment.utc(paceAdjust).format("m'ss\"") + "(考慮上下坡、人潮-調整後)</div>"
+            summary2 += "<div id='summary2' class='summary2'><div>前10k：<b>" + moment.utc(moment(time10km)).format("H:mm:ss") + "</b>&emsp;均速：<b>" + moment.utc(moment(pace10k)).format("m'ss\"") + "</b></div>"
+            summary2 += "<div>後11.1k：<b>" + moment.utc(moment(time11_1k)).format("H:mm:ss") + "</b>&emsp;均速：<b>" + moment.utc(moment(pace11_1k)).format("m'ss\"") + "</b></div>"
+            summary2 += "<div>完賽時間：<b>" + moment.utc(moment(finishTime)).format("H:mm:ss") + "</b>&emsp;目標均速：<b>" + moment.utc(moment(finishTime / 21.1)).format("m'ss\"") + "</b></div>"
+            summary2 += "<div><small style='background-color:#49AD91;color:white'>&emsp;※ 預留每次進站停留時間：<b>" + time_compensate[lv].cp_stop * 2.5 + "</b>秒(每站都進) ※&emsp;</small></div></div>"
+            document.getElementById("result").innerHTML = summary2 + textUpdate + "<img src='https://www.taipeicitymarathon.com/ck_imgs/%E7%AB%8B%E9%AB%94%E8%B7%AF%E7%B7%9A(%E5%8D%8A%E7%A8%8B)1125.jpg' alt='半馬路線圖(取自官網)' title='半馬路線圖(取自官網)'>";
+        } else if (checked == 'fullm') {
+            // summary 區塊
+            textUpdate = document.getElementById("result").innerHTML;
+            summary2 = ''
+            // summary2 += "<div>均速:" + moment.utc(pace).format("m'ss\"") + "(調整前)</div>"
+            // summary2 += "<div>均速:" + moment.utc(paceAdjust).format("m'ss\"") + "(考慮上下坡、人潮-調整後)</div>"
+            summary2 += "<div id='summary2' class='summary2'><div>前半馬：<b>" + moment.utc(moment(firstHalfTime)).format("H:mm:ss") + "</b>&emsp;均速：<b>" + moment.utc(moment(firstHalfPace)).format("m'ss\"") + "</b></div>"
+            summary2 += "<div>後半馬：<b>" + moment.utc(moment(secondHalfTime)).format("H:mm:ss") + "</b>&emsp;均速：<b>" + moment.utc(moment(secondHalfPace)).format("m'ss\"") + "</b></div>"
+            summary2 += "<div>完賽時間：<b>" + moment.utc(moment(finishTime)).format("H:mm:ss") + "</b>&emsp;目標均速：<b>" + moment.utc(moment(finishTime / 42.2)).format("m'ss\"") + "</b></div>"
+            summary2 += "<div><small style='background-color:#49AD91;color:white;'>&emsp;※ 預留每次進站停留時間：<b>" + time_compensate[lv].cp_stop * 2.5 + "</b>秒(每站都進) ※&emsp;</small></div></div>"
+            document.getElementById("result").innerHTML = summary2 + textUpdate + "<img src='https://www.taipeicitymarathon.com/ck_imgs/%E7%AB%8B%E9%AB%94%E8%B7%AF%E7%B7%9A(%E5%85%A8%E7%A8%8B)1125.jpg' alt='全馬路線圖(取自官網)' title='全馬路線圖(取自官網)'>";
+
+
+        } else {
+            console.log('something\'s wrong')
+        }
+
+
+        // tblFooterBtns = document.createElement('div')
+        // tblFooterBtns.setAttribute('id', "tblFooterBtns")
+        // document.getElementById("result").appendChild(tblFooterBtns)
+        // clr = document.createElement('small')
+        // clr.setAttribute('id', "clr")
+        // clr.innerHTML = "清除"
+        // clr.className = 'dynamic-btn';
+        // document.getElementById("tblFooterBtns").appendChild(clr)
+        // clr.addEventListener('click', clean);
+        // contentText = document.createTextNode('、')
+        // document.getElementById("tblFooterBtns").appendChild(contentText)
+        // dl = document.createElement('small')
+        // dl.setAttribute('id', "dl")
+        // dl.innerHTML = "下載"
+        // dl.className = 'dynamic-btn';
+        // document.getElementById("tblFooterBtns").appendChild(dl)
+        // dl.addEventListener('click', downloadwithbrowser);
+        // console.log(tblFooterBtns.innerHTML)
+
+
+        // 清除按鈕跟下載按鈕
+        tblFooterBtns = document.createElement("div");
+        tblFooterBtns.setAttribute('id', "tblFooterBtns")
+        tblFooterBtns.className = 'dynamic-btn'
+
+        tblFooterBtns.innerHTML = ''
+        // tblFooterBtns.innerHTML += '<small><a href="#" onclick="clean()">清除重來</a></small>、<small>❤️<a href="#" onclick="downloadwithbrowser()">製作配速手環</a>❤️</small>';
+
+        tblFooterBtns.innerHTML += '<a href="#" class="small-btn" onclick="clean()">清除重來</a>&emsp;<a href="#" class="small-btn" onclick="downloadwithbrowser()">❤️製作配速手環❤️</a><br/><br/><small>(PS.別忘了點上方<i class="las la-info-circle"></i>圖示看路線介紹、補給策略喔)</small>';
+        document.getElementById("result").appendChild(tblFooterBtns)
+
+        document.querySelector('.main').style.marginTop = 0
+        // document.querySelector('#toDisappear').style.display = "none"
+
+        // ['#inputFinishTime', '#my-tbl', '#calBtn', '#summary2', '#tblFooterBtns'].forEach(function (ids) {
+        //     document.querySelector(ids).style.margin = 0
+        // });
+        document.querySelector('#inputFinishTime').style.margin = 0;
+        // document.querySelector('#my-tbl').style.margin = 0;
+        // document.querySelector('#calBtn').style.margin = "5px 0 10px 0";
+        // document.querySelector('#summary2').style.margin = auto;
+        // document.querySelector('#tblFooterBtns').style.margin = 0;
+        // document.getElementById('result').style.display = "block"
+
+
+
+
+
+        // document.body.addEventListener('click', function (e) {
+        //     console.log(e.target.id);
+        //     if (e.target.id == 'closeT') {
+        //         //do something
+        //         // shareOptions.classList.toggle('active');
+        //         console.log('hit btn');
+        //     }
+        // })
+
+        render("block") // 顯示結果
+
+    }
+</script>
+
+</html>
